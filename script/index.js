@@ -1,6 +1,6 @@
 const progress = document.querySelector("#progress");
 
-const prev = document.querySelector("#progress");
+const prev = document.querySelector("#prev");
 
 const next = document.querySelector("#next");
 
@@ -21,7 +21,12 @@ const update = () => {
 
   console.log(progress);
 
-  progress.styles.width = ((actives.length - 1) / circles.length) * 100 + "%";
+  const progressWidth =
+    ((actives.length - 1) / (circles.length - 1)) * 100 + "%";
+
+  progress.style.width = progressWidth;
+
+  console.log(currentActive);
 
   if (currentActive === 1) {
     prev.disabled = true;
@@ -33,18 +38,18 @@ const update = () => {
   }
 };
 
-next.addEventListener("click", () => {
-  currentActive += 1;
-  if (currentActive > circles.length) {
-    currentActive = circles.length;
-  }
-  update();
-});
-
 prev.addEventListener("click", () => {
   currentActive -= 1;
   if (currentActive < 1) {
     currentActive = 1;
+  }
+  update();
+});
+
+next.addEventListener("click", () => {
+  currentActive += 1;
+  if (currentActive > circles.length) {
+    currentActive = circles.length;
   }
   update();
 });
