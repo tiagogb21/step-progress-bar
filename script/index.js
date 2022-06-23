@@ -4,7 +4,7 @@ const prev = document.querySelector("#prev");
 
 const next = document.querySelector("#next");
 
-const circles = document.querySelectorAll(".circles");
+const circles = document.querySelectorAll(".circle");
 
 let currentActive = 1;
 
@@ -19,14 +19,10 @@ const update = () => {
 
   const actives = document.querySelectorAll(".active");
 
-  console.log(progress);
-
   const progressWidth =
     ((actives.length - 1) / (circles.length - 1)) * 100 + "%";
 
   progress.style.width = progressWidth;
-
-  console.log(currentActive);
 
   if (currentActive === 1) {
     prev.disabled = true;
