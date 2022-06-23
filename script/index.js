@@ -2,18 +2,11 @@ const progress = document.querySelector("#progress");
 
 const prev = document.querySelector("#progress");
 
-const prev = document.querySelector("#next");
+const next = document.querySelector("#next");
 
 const circles = document.querySelectorAll(".circles");
 
 let currentActive = 1;
-
-next.addEventListener("click", () => {
-  currentActive += 1;
-  if (currentActive > circles.length) {
-    currentActive = circles.length;
-  }
-});
 
 const update = () => {
   circles.forEach((circle, index) => {
@@ -23,7 +16,30 @@ const update = () => {
       circle.classList.remove("active");
     }
   });
+
+  const actives = document.querySelectorAll(".active");
+
+  console.log(progress);
+
+  progress.styles.width = ((actives.length - 1) / circles.length) * 100 + "%";
+
+  if (currentActive === 1) {
+    prev.disabled = true;
+  } else if (currentActive === circles.length) {
+    next.disabled = true;
+  } else {
+    prev.disabled = false;
+    next.disabled = false;
+  }
 };
+
+next.addEventListener("click", () => {
+  currentActive += 1;
+  if (currentActive > circles.length) {
+    currentActive = circles.length;
+  }
+  update();
+});
 
 prev.addEventListener("click", () => {
   currentActive -= 1;
