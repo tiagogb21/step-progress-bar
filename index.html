@@ -4,9 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Step Progress Bar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/index.css" />
   </head>
-  <body></body>
+  <body>
+    <h1>Step Progress Bar</h1>
+    <main class="container">
+      <section class="progress-container">
+        <article class="progress" id="progress"></article>
+        <article class="circle active">
+          <i class="fab fa-html5"></i>
+        </article>
+        <article class="circle active">
+          <i class="fab fa-css3-alt"></i>
+        </article>
+        <article class="circle active">
+          <i class="fab fa-js"></i>
+        </article>
+        <article class="circle active">
+          <i class="fab fa-react"></i>
+        </article>
+        <button class="btn" id="prev" disabled>Previous</button>
+        <button class="btn" id="next">Next</button>
+      </section>
+    </main>
+  </body>
 </html>
